@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Yield Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        #result {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crop Yield Prediction</h1>
+    <form action="/" method="post">
+        <label for="Area">Area:</label>
+        <input type="number" id="Area" name="Area" required><br>
+        
+        <label for="Production">Production:</label>
+        <input type="number" id="Production" name="Production" required><br>
+
+        <label for="Annual_Rainfall">Annual Rainfall:</label>
+        <input type="number" id="Annual_Rainfall" name="Annual_Rainfall" required><br>
+
+        <label for="Fertilizer">Fertilizer:</label>
+        <input type="number" id="Fertilizer" name="Fertilizer" required><br>
+
+        <label for="Pesticide">Pesticide:</label>
+        <input type="number" id="Pesticide" name="Pesticide" required><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    <div id="result">
+        {% if prediction is not none %}
+        <h2>Prediction: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
